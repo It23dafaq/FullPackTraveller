@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
+//import Dropdown from 'react-bootstrap/Dropdown'
+import DropDownSelect from '../DropdownSelect/dropDownSelect'
+import Select from 'react-select';
+import Form from 'react-bootstrap/Form'
 import './mainPage.css';
+import AirPorts from '../../store/airPorts'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 class MainPage extends Component  {
   constructor(props) {
@@ -9,6 +17,8 @@ class MainPage extends Component  {
      value: '',
      link:null,
      flag:false,
+     label:null,
+     valueInput:null,
  };
 
    this.handleChange = this.handleChange.bind(this);
@@ -33,11 +43,23 @@ class MainPage extends Component  {
 
  }
  render(){
-  
+
   return (
-   <div>
-     <p>Random Traveler</p>
-   </div>
+
+  <Row>
+    <Col><img  src={process.env.PUBLIC_URL + '/assets/img/world.png'} alt="" /> <h5>from</h5></Col>
+    <Col></Col>
+     <Col><div className="dropDownSelect">
+      <Select options={AirPorts} onChange={opt =>
+       this.setState({valueInput:opt.value,label:opt.label })} />
+      </div>
+    </Col>
+  </Row>
+
+
+
+
+
   );
  }
 }

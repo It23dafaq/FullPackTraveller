@@ -3,16 +3,13 @@ import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import MainPage from './app/mainPage/mainPage'
 import './App.css';
+import Container from 'react-bootstrap/Container'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-
-        <MainPage name="Constantinos Foulidis" working="Web Developer" knowledge="react js - javascript - angular js - unity - android - kotlin - nodejs - jquery - angular 8-9 - java" />
-      
-    </header>
-    </div>
+      <Container>
+        <MainPage/>
+      </Container>
   );
 }
 
