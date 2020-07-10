@@ -9,9 +9,11 @@ import { createStore, combineReducers,applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import  loginAuthReducer  from './store/reducers/loginAuth';
+import  flightsReducer  from './store/reducers/mainPageReducer';
 
 const rootReducer = combineReducers({
     login: loginAuthReducer,
+    main: flightsReducer,
 });
 
 const store = createStore(rootReducer,applyMiddleware(thunk));

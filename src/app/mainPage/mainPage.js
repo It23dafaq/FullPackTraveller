@@ -10,8 +10,10 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import MapChart from "../mapChart/mapChart";
-
+import { connect } from 'react-redux'
+import {getFlights} from '../../store/actions/mainPageActions'
 import Slider from '@material-ui/core/Slider';
+import LinearIndeterminate from '../Spinner/ProgressBar'
 
 class MainPage extends Component  {
   constructor(props) {
@@ -52,15 +54,18 @@ class MainPage extends Component  {
   handleChange(event) {
     this.setState({value: event.target.value});
   }
+  componentDidUpdate(){
+
+    if(this.props.itookData==true){
+      this.props.history.push({
+       pathname: "/SearchResults"
+     });
+    }
+  }
   //this method handles the onsubmit button
   handleSubmit(event) {
 
    event.preventDefault();
-   console.log(this.state.isCheckedRound);
-   console.log(this.state.isCheckedOneWay);
-   console.log(this.state.value);
-   console.log(this.state.rangeValues);
-    console.log(this.state.daysIndest);
    if(this.state.value==''&& this.state.daysIndest==0){
      window.alert("fill all fields")
    }else{
@@ -69,8 +74,19 @@ class MainPage extends Component  {
      link:data,
      flag:true,
    })
+    let parameters = {}
+    parameters.fly_from = this.state.value;
+    if(this.state.isCheckedRound){
+        parameters.flight_type = 'round';
+    }else{
+        parameters.flight_type = 'oneway';
+    }
+     parameters.nights_in_dst_from=this.state.daysIndest;
+     parameters.nights_in_dst_to = this.state.daysIndest;
+     parameters.range = this.state.rangeValues;
+     this.props.getFlights(parameters);
   }
- }
+}
  //this method needs for range
   valuetext(value) {
    return `${value}°C`;
@@ -83,9 +99,16 @@ class MainPage extends Component  {
  }
 
  render(){
+   let spinner;
+     if(this.props.loading){
+       spinner=(
+           <LinearIndeterminate />
+       )
+     }
+
 
   return (
-    <div>
+    <div className="backGroundMainPage">
           <nav className="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
               <div className="container">
                   <a className="navbar-brand js-scroll-trigger" href="#page-top">{this.props.name}</a>
@@ -123,6 +146,7 @@ class MainPage extends Component  {
                       <div className="divider-custom-line"></div>
                   </div>
                   <Form className="backgroundColorSearch">
+                    {spinner}
   <Form.Group as={Row} controlId="formHorizontalEmail">
     <Form.Label column sm={2}>
       From
@@ -146,6 +170,7 @@ class MainPage extends Component  {
             valueLabelDisplay="on"
             aria-labelledby="range-slider"
             getAriaValueText={this.valuetext}
+            max={1000}
           />
        </div>
     </Col>
@@ -206,7 +231,6 @@ class MainPage extends Component  {
                   </div>
                 </div>
         </section>
-
           <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
           <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
           <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
@@ -223,5 +247,19 @@ class MainPage extends Component  {
   );
  }
 }
+const mapStateToProps = (state, props) => {
+  return {
+    flights: state.main.flights,
+    loading: state.main.loading,
+    error: state.main.error,
+    itookData: state.main.itookData,
+    ...props
+  };
+};
+const mapDispatchToProps = dispatch => {
+  return {
+    getFlights: formdata => dispatch(getFlights(formdata))
+  };
+};
 
-export default MainPage;
+export default connect(mapStateToProps, mapDispatchToProps)(MainPage);

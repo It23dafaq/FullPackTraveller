@@ -1,7 +1,7 @@
 const AirPorts = [
   {
     label: "Thessaloniki",
-    value: "skg"
+    value: "SKG"
   },
   {
     label: "Athens",
