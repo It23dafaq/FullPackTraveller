@@ -78,6 +78,7 @@ class MainPage extends Component  {
     parameters.fly_from = this.state.value;
     if(this.state.isCheckedRound){
         parameters.flight_type = 'round';
+        parameters.return = 1;
     }else{
         parameters.flight_type = 'oneway';
     }
