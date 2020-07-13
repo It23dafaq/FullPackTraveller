@@ -23,7 +23,7 @@ export const getFlightsSuccess = flights => {
 
   return {
     type: actionTypes.GET_FLIGHTS,
-    flights: flights
+    flights: flights.data
   };
 
 };
@@ -34,7 +34,7 @@ export const getFlights = formdata => {
     //todo async actions
 //axios.defaults.headers.common['apikey '] = 'GxbUOWZfAq4rY7wruD52NTfDxzJTGgO1'
     axios
-      .get('https://tequila-api.kiwi.com/v2/search?fly_from='+formdata.fly_from+'&'+'nights_in_dst_from='+formdata.nights_in_dst_from+'&'+'nights_in_dst_to='+formdata.nights_in_dst_to+'&'+'flight_type=round'+'&'+'partner_market= alpha-2'+'&'+'&dateFrom=7/11/2020&dateTo=12/12/2020'+'&max_stopovers=0',
+      .get('https://tequila-api.kiwi.com/v2/search?fly_from='+formdata.fly_from+'&'+'nights_in_dst_from='+formdata.nights_in_dst_from+'&nights_in_dst_to='+formdata.nights_in_dst_to+'&flight_type=round'+'&partner_market= alpha-2'+'&dateFrom=7/11/2020&dateTo=12/12/2020'+'&max_stopovers=0&type_flights=lcc&ret_from_diff_airport=0',
       {
    headers: {
      apikey: 'GxbUOWZfAq4rY7wruD52NTfDxzJTGgO1' //the token is a variable which holds the token

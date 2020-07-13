@@ -9,14 +9,14 @@ import SearchResults from './app/SearchResults/SearchResults'
 
 function App() {
   return (
-      <Container>
+      <div className="main-view">
         <Router>
            <Switch>
             <Route exact path="/" component={MainPage} />
             <Route exact path="/SearchResults" component={SearchResults} />
         </Switch>
         </Router>
-      </Container>
+      </div>
   );
 }
 

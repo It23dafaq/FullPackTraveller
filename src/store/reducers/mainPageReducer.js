@@ -1,7 +1,7 @@
 import * as actionTypes from '../actionTypes';
 import { updateObject } from '../utility';
 const initialState = {
-    flghts: null,
+    flights: null,
     loading:false,
     error:null,
     itookData:false,
@@ -21,7 +21,7 @@ const callFail = (state, action) => {
 
 const getFlights = (state, action) => {
     return updateObject(state, {
-      flghts:action.flights,
+      flights:action.flights,
       error: null,
       loading: false,
       itookData:true,

@@ -1,0 +1,22 @@
+
+  root_1: {
+    max-width: 300;
+    min-width:300;
+    margin-bottom:'20px';
+    border-radius:'7px';
+    padding:'1px';
+  },
+  media_1: {
+    height: 0;
+    padding-top: '56.25%';
+  },
+  expand_1: {
+    transform: 'rotate(0deg)';
+    margin-left: 'auto';
+    transition: 'transform';
+      duration: 1ms;
+
+  },
+  expandOpen_1: {
+    transform: 'rotate(180deg)',
+  }
