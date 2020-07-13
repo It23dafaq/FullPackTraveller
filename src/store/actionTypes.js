@@ -9,3 +9,6 @@ export const SEARCH_FLIGHTS = 'SEARCH_FLIGHTS';
 export const CALL_START = 'CALL_START';
 export const GET_FLIGHTS = 'GET_FLIGHTS';
 export const CALL_FAIL   = 'CALL_FAIL';
+
+//filter flights
+export const FILTER_FLIGHTS   = 'FILTER_FLIGHTS';

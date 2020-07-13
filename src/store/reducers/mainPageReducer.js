@@ -5,6 +5,7 @@ const initialState = {
     loading:false,
     error:null,
     itookData:false,
+    filteredFlights:null,
 };
 
 const callStart = ( state, action ) => {
@@ -26,11 +27,17 @@ const getFlights = (state, action) => {
       loading: false,
       itookData:true,
     });
-    this.props.history.push({
-     pathname: "/SearchResults"
-   });
+    
 };
-
+const filterFlights = (state, countryName) => {
+    console.log(countryName);
+    if(state.flights!==null){
+    let filteredResults=state.flights.filter(flight => flight.cityTo === countryName );
+      return updateObject(state, {
+        filteredFlights: filteredResults
+      });
+     }
+};
 
 
 
@@ -39,6 +46,7 @@ const getFlights = (state, action) => {
       case actionTypes.CALL_START:return callStart(state,action);
       case actionTypes.CALL_FAIL: return callFail(state, action);
       case actionTypes.GET_FLIGHTS: return getFlights(state, action);
+      case actionTypes.FILTER_FLIGHTS: return filterFlights(state, action.country);
        default:
            return state;
      }

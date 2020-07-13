@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import { withStyles } from "@material-ui/core/styles";
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -14,8 +13,10 @@ import { red } from '@material-ui/core/colors';
 import InfoIcon from '@material-ui/icons/Info';
 import Col from 'react-bootstrap/Col'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import { connect } from 'react-redux'
 import './countryCards.css';
+import {filterFlightsByName} from '../../store/actions/mainPageActions'
+
 
 const useStyles = ((theme) => ({
   root: {
@@ -50,17 +51,31 @@ class RecipeReviewCard extends Component  {
    this.state = {
      value: '',
      expanded:false,
-     [0]:false,
      index:null,
+     country:null,
+     method:props.handler,
  };
 }
+
+//this mehtod handles expand action for country card
  handleExpandClick = (event,indexof) => {
    this.setState(
      {expanded:!this.state.expanded,
       index:indexof
     })
  };
-
+ //this method handles action from card 
+ //its changes tab and filters flights
+ handleMoreDetails = (key) => {
+  this.setState(
+    {country:key
+   })
+  
+   //this method passed from props via tabSearch <- tabs
+   this.props.handler();
+   //this method filter flights by name
+   this.props.filterFlightsByName(key);
+};
 render(){
  const { classes } = this.props;
  return (
@@ -81,7 +96,7 @@ render(){
            </Typography>
          </CardContent>
          <CardActions disableSpacing>
-           <IconButton onClick={(event,index) => this.handleExpandClick(event,index)} aria-label="More Details">
+           <IconButton onClick={() => this.handleMoreDetails(key)} aria-label="More Details">
              <InfoIcon />
            </IconButton>
            <IconButton
@@ -112,59 +127,11 @@ render(){
 )
 }
 }
-export default withStyles(useStyles)(RecipeReviewCard);
+const mapDispatchToProps = dispatch => {
+  return {
+    filterFlightsByName: countryName => dispatch(filterFlightsByName(countryName))
+  };
+};
+export default connect(null,mapDispatchToProps)(withStyles(useStyles)(RecipeReviewCard));
 
-// export default function RecipeReviewCard(props) {
-//   const classes = useStyles();
-//   const [expanded, setExpanded] = React.useState(false);
-//   console.log(props.flightsGB);
-//   const handleExpandClick = () => {
-//     setExpanded(!expanded);
-//   };
-//
-//   return Array.from(props.flightsGB.keys()).map((key,index) => (
-//    <Col key={key} className="col-auto">
-//
-//     <Card className={classes.root}>
-//       <CardHeader
-//
-//       />
-//       <CardMedia
-//         className={classes.media}
-//         image="assets/img/test2.jpg"
-//         title="Paella dish"
-//       />
-//       <CardContent>
-//         <Typography variant="body2" color="textSecondary" component="p">
-//         Flights for {key} start at 30$
-//         </Typography>
-//       </CardContent>
-//       <CardActions disableSpacing>
-//         <IconButton onClick={handleExpandClick} aria-label="More Details">
-//           <InfoIcon />
-//         </IconButton>
-//         <IconButton
-//           className={clsx(classes.expand, {
-//             [classes.expandOpen]: expanded,
-//           })}
-//           onClick={handleExpandClick}
-//           aria-expanded={expanded}
-//           aria-label="show more"
-//         >
-//
-//           <ExpandMoreIcon />
-//         </IconButton>
-//       </CardActions>
-//       <Collapse in={expanded} timeout="auto" unmountOnExit>
-//         <CardContent>
-//           <Typography paragraph>Country:</Typography>
-//           <Typography paragraph >
-//             Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10
-//             minutes.
-//           </Typography>
-//         </CardContent>
-//       </Collapse>
-//     </Card>
-//   </Col>
-//   ));
-// }
+

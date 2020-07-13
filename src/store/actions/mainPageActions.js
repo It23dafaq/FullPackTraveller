@@ -53,3 +53,10 @@ export const getFlights = formdata => {
       });
   };
 };
+export const filterFlightsByName=(name)=>{
+   return {
+    type:actionTypes.FILTER_FLIGHTS,
+     country:name
+     
+   }
+}
