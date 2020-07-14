@@ -17,6 +17,8 @@ import TabSearch from '../TabSearch/TabSearch'
 import LocalAirportIcon from '@material-ui/icons/LocalAirport';
 import LocalHotelIcon from '@material-ui/icons/LocalHotel';
 import RoomIcon from '@material-ui/icons/Room';
+import LocalOfferIcon from '@material-ui/icons/LocalOffer';
+import ListTickets from '../TabTickets/TabTickets';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -57,6 +59,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     backgroundColor: theme.palette.background.paper,
      padding: theme.spacing(1),
+
   },
 }));
 
@@ -66,6 +69,9 @@ export default function ScrollableTabsButtonPrevent() {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+  };
+  const handleClickChildComponent = (event, newValue) => {
+    setValue(1);
   };
 
   return (
@@ -79,19 +85,23 @@ export default function ScrollableTabsButtonPrevent() {
           aria-label="scrollable prevent tabs example"
         >
           <Tab label="Flights" icon={<LocalAirportIcon />} aria-label="phone" {...a11yProps(0)} />
-          <Tab label="Hotel" icon={<LocalHotelIcon />} aria-label="favorite" {...a11yProps(1)} />
-          <Tab label="Seesights" icon={<RoomIcon />} aria-label="person" {...a11yProps(2)} />
+          <Tab label="Tickets" icon={<LocalOfferIcon />} aria-label="phone" {...a11yProps(1)} />
+          <Tab label="Hotel" icon={<LocalHotelIcon />} aria-label="favorite" {...a11yProps(2)} />
+          <Tab label="Seesights" icon={<RoomIcon />} aria-label="person" {...a11yProps(3)} />
 
         </Tabs>
       </AppBar>
       <TabPanel  value={value} index={0} className="backGroundAirplane">
-        <TabSearch />
+        <TabSearch handler={handleClickChildComponent}/>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+      <ListTickets/>
       </TabPanel>
       <TabPanel value={value} index={2}>
         Item Three
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        Item four
       </TabPanel>
     </div>
   );

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import { withStyles } from "@material-ui/core/styles";
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -14,8 +13,10 @@ import { red } from '@material-ui/core/colors';
 import InfoIcon from '@material-ui/icons/Info';
 import Col from 'react-bootstrap/Col'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import { connect } from 'react-redux'
 import './countryCards.css';
+import {filterFlightsByName} from '../../store/actions/mainPageActions'
+
 
 const useStyles = ((theme) => ({
   root: {
@@ -50,17 +51,31 @@ class RecipeReviewCard extends Component  {
    this.state = {
      value: '',
      expanded:false,
-     [0]:false,
      index:null,
+     country:null,
+     method:props.handler,
  };
 }
+
+//this mehtod handles expand action for country card
  handleExpandClick = (event,indexof) => {
    this.setState(
      {expanded:!this.state.expanded,
       index:indexof
     })
  };
+ //this method handles action from card
+ //its changes tab and filters flights
+ handleMoreDetails = (key) => {
+  this.setState(
+    {country:key
+   })
 
+   //this method passed from props via tabSearch <- tabs
+   this.props.handler();
+   //this method filter flights by name
+   this.props.filterFlightsByName(key);
+};
 render(){
  const { classes } = this.props;
  return (
@@ -81,7 +96,7 @@ render(){
            </Typography>
          </CardContent>
          <CardActions disableSpacing>
-           <IconButton onClick={(event,index) => this.handleExpandClick(event,index)} aria-label="More Details">
+           <IconButton onClick={() => this.handleMoreDetails(key)} aria-label="More Details">
              <InfoIcon />
            </IconButton>
            <IconButton
@@ -112,4 +127,9 @@ render(){
 )
 }
 }
-export default withStyles(useStyles)(RecipeReviewCard);
+const mapDispatchToProps = dispatch => {
+  return {
+    filterFlightsByName: countryName => dispatch(filterFlightsByName(countryName))
+  };
+};
+export default connect(null,mapDispatchToProps)(withStyles(useStyles)(RecipeReviewCard));

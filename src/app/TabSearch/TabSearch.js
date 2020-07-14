@@ -41,7 +41,7 @@ class TabSearch extends Component  {
 
     console.log("mpika sto flights dada",grouped);
     flights = (
-          <RecipeReviewCard flightsGB={grouped}/>
+          <RecipeReviewCard handler={this.props.handler} flightsGB={grouped}/>
     )
   }
   return (

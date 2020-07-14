@@ -14,6 +14,7 @@ import { connect } from 'react-redux'
 import {getFlights} from '../../store/actions/mainPageActions'
 import Slider from '@material-ui/core/Slider';
 import LinearIndeterminate from '../Spinner/ProgressBar'
+import SearchIcon from '@material-ui/icons/Search';
 
 class MainPage extends Component  {
   constructor(props) {
@@ -75,6 +76,8 @@ class MainPage extends Component  {
      flag:true,
    })
     let parameters = {}
+    console.log(this.state.isCheckedRound);
+    console.log(this.state.isCheckedRound);
     parameters.fly_from = this.state.value;
     if(this.state.isCheckedRound){
         parameters.flight_type = 'round';
@@ -93,10 +96,12 @@ class MainPage extends Component  {
    return `${value}°C`;
  }
  radioButtonchangedRound(){
-   this.setState({isCheckedRound:!this.state.isCheckedRound});
+   this.setState({isCheckedRound:!this.state.isCheckedRound,
+    isCheckedOneWay:!this.state.isCheckedOneWay});
  }
  radioButtonchangedOneway(){
-    this.setState({isCheckedOneWay:!this.state.isCheckedOneWay});
+    this.setState({isCheckedOneWay:!this.state.isCheckedOneWay,
+    isCheckedRound:!this.state.isCheckedRound});
  }
 
  render(){
@@ -133,7 +138,7 @@ class MainPage extends Component  {
                    <p  className="text-dark">Best travel offers</p>
                   <div className="divider-custom ">
                       <div className="divider-custom-line"></div>
-                      <div className="divider-custom-icon"><i className="fas fa-star"></i></div>
+                      <div className="divider-custom-icon"><i ></i></div>
                       <div className="divider-custom-line"></div>
                   </div>
               </div>
@@ -143,7 +148,7 @@ class MainPage extends Component  {
                   <h2 className="page-section-heading text-center text-uppercase text-secondary mb-0">Search</h2>
                   <div className="divider-custom">
                       <div className="divider-custom-line"></div>
-                      <div className="divider-custom-icon"><i className="fas fa-star"></i></div>
+                      <div className="divider-custom-icon"><i><SearchIcon/></i></div>
                       <div className="divider-custom-line"></div>
                   </div>
                   <Form className="backgroundColorSearch">

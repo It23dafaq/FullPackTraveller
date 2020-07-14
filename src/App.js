@@ -6,6 +6,7 @@ import './App.css';
 import Container from 'react-bootstrap/Container'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import SearchResults from './app/SearchResults/SearchResults'
+import ListTickets from './app/TabTickets/TabTickets';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
            <Switch>
             <Route exact path="/" component={MainPage} />
             <Route exact path="/SearchResults" component={SearchResults} />
+            <Route exact path="/TicketsResults" component={ListTickets} />
         </Switch>
         </Router>
       </div>
