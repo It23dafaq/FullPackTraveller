@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col'
 import ScrollableTabsButtonPrevent from '../TabsPanel/Tabs.js'
 import Slider from '@material-ui/core/Slider';
 import { connect } from 'react-redux'
+import LocalAirportIcon from '@material-ui/icons/LocalAirport';
 
 class TabSearch extends Component  {
   constructor(props) {
@@ -52,7 +53,7 @@ class TabSearch extends Component  {
       </div>
     <div className="divider-custom ">
           <div className="divider-custom-line"></div>
-          <div className="divider-custom-icon"><i className="fas fa-star"></i></div>
+          <div className="divider-custom-icon"><i> <LocalAirportIcon/></i></div>
           <div className="divider-custom-line"></div>
       </div>
 

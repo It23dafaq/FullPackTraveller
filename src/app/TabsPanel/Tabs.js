@@ -70,7 +70,7 @@ export default function ScrollableTabsButtonPrevent() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" className="backgroundColorAbout">
+      <AppBar position="static" className="backgroundColorAbout ">
         <Tabs
           value={value}
           onChange={handleChange}
@@ -84,7 +84,7 @@ export default function ScrollableTabsButtonPrevent() {
 
         </Tabs>
       </AppBar>
-      <TabPanel  value={value} index={0} className="backGroundMainPage">
+      <TabPanel  value={value} index={0} className="backGroundAirplane">
         <TabSearch />
       </TabPanel>
       <TabPanel value={value} index={1}>
