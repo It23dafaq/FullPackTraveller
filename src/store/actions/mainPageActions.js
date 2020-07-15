@@ -67,3 +67,10 @@ export const filterFlightsByName=(name)=>{
 
    }
 }
+export const selectedTicket=(index)=>{
+   return {
+    type:actionTypes.SELECTED_TICKET,
+     index:index
+
+   }
+}

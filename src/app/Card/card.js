@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux'
 //import Dropdown from 'react-bootstrap/Dropdown'
 import './card.css';
-
+import {selectedTicket} from '../../store/actions/mainPageActions'
 
 class CardsFlights extends Component  {
   constructor(props) {
@@ -15,22 +15,55 @@ class CardsFlights extends Component  {
    super(props);
    this.state = {
      value: '',
+     hover: false,
+     key: {0:true},
+     lastKey:0
  };
   //this lines passing this to all methods
 //   this.handleChange = this.handleChange.bind(this);
-
+ this.handleSelected = this.handleSelected.bind(this);
+ this.handleBlur = this.handleBlur.bind(this);
  }
+ handleSelected(index) {
+   this.setState(prevState => {
+        return { key: { ...prevState.key, [this.state.lastKey]: false },lastKey:index };
+      });
+   this.setState(prevState => {
+        return { key: { ...prevState.key, [index]: true },lastKey:index };
+      });
+      this.props.selectedTicket(index);
+ }
+ handleBlur(index) {
+   this.setState(prevState => {
+        return { key: { ...prevState.key, [index]: false } };
+      });
+ }
+
  handleClose = (href) => {
    window.open(
     href,
   '_blank' // <- This is what makes it open in a new window.
 );
  }
+
+
  render(){
+console.log(this.state);
+   //const  = this.state.isHovered ? "pulse animated" : "";
+ //    let classSelected;
+ //    if(this.state.key!=null){
+ //   if(this.state.key[this.state.lastKey){
+ //     classSelected =  "selected_ticket";
+ //   }else{
+ //     classSelected="";
+ //   }
+ // }
+  console.log(this.state.key[0]);
 
   return (
       this.props.filteredFlights.map((key,index) => (
-    <div className="container border mb-2 cover-tickets pt-3"  key={index}>
+    <div className={"container border  cover-tickets pt-3 marginBottomCards "+(this.state.key[index] ? 'selected_ticket' : '')}  onClick={ () => this.handleSelected(index) }
+      key={index}>
        <ul className="event-list">
          <li>
          <img alt="Independence Day" src="/assets/img/logoryanair.png" />
@@ -67,7 +100,15 @@ class CardsFlights extends Component  {
            </div>
            <div className="social">
                <time>
-                   {key.route.length==1 ?  <h3 className="mt-4">{key.price}€</h3>  : null}
+                   {key.route.length==1 ? <>
+                    <h3 className="mt-4">{key.price}€</h3>
+                   <Row className="offset-3">
+                     <Button className=""variant="contained" color="primary" onClick={() => this.handleClose(key.deep_link)}>
+                       Book
+                     </Button>
+                   </Row>
+                  </>
+               : null}
                </time>
            </div>
          </li>
@@ -116,10 +157,8 @@ class CardsFlights extends Component  {
          </li>
        ) : null}
        </ul>
-
    </div>
-
- )));
+)));
  }
 }
 const mapStateToProps = (state, props) => {
@@ -132,4 +171,9 @@ const mapStateToProps = (state, props) => {
     ...props
   };
 };
-export default  connect(mapStateToProps, null)(CardsFlights);
+const mapDispatchToProps = dispatch => {
+  return {
+    selectedTicket: index => dispatch(selectedTicket(index))
+  };
+};
+export default  connect(mapStateToProps, mapDispatchToProps)(CardsFlights);

@@ -12,3 +12,5 @@ export const CALL_FAIL   = 'CALL_FAIL';
 
 //filter flights
 export const FILTER_FLIGHTS   = 'FILTER_FLIGHTS';
+//selected ticket
+export const SELECTED_TICKET   = 'SELECTED_TICKET';

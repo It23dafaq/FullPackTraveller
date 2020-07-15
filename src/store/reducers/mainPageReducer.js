@@ -6,6 +6,7 @@ const initialState = {
     error:null,
     itookData:false,
     filteredFlights:null,
+    selectedTicket:null,
 };
 
 const callStart = ( state, action ) => {
@@ -27,7 +28,7 @@ const getFlights = (state, action) => {
       loading: false,
       itookData:true,
     });
-    
+
 };
 const filterFlights = (state, countryName) => {
     console.log(countryName);
@@ -39,6 +40,16 @@ const filterFlights = (state, countryName) => {
      }
 };
 
+const selectedTicket = (state, index) => {
+    console.log(index);
+    if(state.filteredFlights!==null){
+    let selectedticket=state.filteredFlights[index];
+      return updateObject(state, {
+        selectedTicket: selectedticket
+      });
+     }
+
+};
 
 
  const flightsReducer = (state = initialState, action) => {
@@ -47,6 +58,7 @@ const filterFlights = (state, countryName) => {
       case actionTypes.CALL_FAIL: return callFail(state, action);
       case actionTypes.GET_FLIGHTS: return getFlights(state, action);
       case actionTypes.FILTER_FLIGHTS: return filterFlights(state, action.country);
+      case actionTypes.SELECTED_TICKET: return selectedTicket(state, action.index);
        default:
            return state;
      }
