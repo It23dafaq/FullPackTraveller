@@ -103,6 +103,25 @@ class MainPage extends Component  {
     this.setState({isCheckedOneWay:!this.state.isCheckedOneWay,
     isCheckedRound:!this.state.isCheckedRound});
  }
+ onFocusSearch(){
+   console.log("mpika");
+    //$('#portfolio').css('background-image','url(assets/img/airplane.jpg)');
+   document.getElementById('portfolio').style.backgroundImage="url(assets/img/airplane.jpg)";
+   document.getElementById('portfolio').style.animation="fadeMe 1.5s";
+   document.getElementById('portfolio').style.backgroundRepeat="no-repeat";
+   document.getElementById('portfolio').style.backgroundSize="cover";
+
+
+ }
+ onFocusHeader(){
+   console.log("mpika header");
+    //$('#portfolio').css('background-image','url(assets/img/airplane.jpg)');
+    document.getElementById('portfolio').style.backgroundImage='none';
+    document.getElementById('portfolio').style.animation='none';
+    document.getElementById('portfolio').style.backgroundRepeat='none';
+    document.getElementById('portfolio').style.backgroundSize='none';
+    //$("#portfolio").addClass(".cover-gradient");
+ }
 
  render(){
    let spinner;
@@ -114,7 +133,7 @@ class MainPage extends Component  {
 
 
   return (
-    <div className="backGroundMainPage">
+    <div className="backGroundMainPage"  >
           <nav className="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
               <div className="container">
                   <a className="navbar-brand js-scroll-trigger" href="#page-top">{this.props.name}</a>
@@ -130,7 +149,7 @@ class MainPage extends Component  {
                   </div>
               </div>
           </nav>
-          <header className="masthead  text-white text-center">
+          <header onMouseOver={this.onFocusHeader} className="masthead  text-white text-center">
               <div className="container d-flex align-items-center flex-column">
                  <h1>Simply The Best</h1>
                    <MapChart />
@@ -143,7 +162,7 @@ class MainPage extends Component  {
                   </div>
               </div>
           </header>
-          <section className="page-section portfolio mt-5" id="portfolio">
+          <section className="page-section portfolio mt-5 " id="portfolio"  onMouseOver={this.onFocusSearch}>
               <div className="container ">
                   <h2 className="page-section-heading text-center text-uppercase text-secondary mb-0">Search</h2>
                   <div className="divider-custom">

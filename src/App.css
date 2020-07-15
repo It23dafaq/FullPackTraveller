@@ -18,8 +18,8 @@ background-color: rgb(220, 220, 220);
 }
 #root{
   position: absolute;
-    width: 100rem;
-    height: 100rem;
+    width: 100%;
+    height: 100%;
     background-image: url('/assets/img/sky.jpg');
      background-repeat: no-repeat;
 
@@ -40,11 +40,41 @@ background-color: rgb(220, 220, 220);
    background-repeat: no-repeat;
     background-size: cover;
 }
+.backGroundTickets{
+  background-image: url('/assets/img/skyClouds.jpg');
+   background-repeat: no-repeat;
+    background-size: cover;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+.cover-tickets {
 
+	opacity: 0;
+  animation: fadeMe 0.1s linear;
+	animation-delay: 0.6s;
+	animation-fill-mode: forwards;
+	background-image: linear-gradient(to right, rgba(44, 62, 80, 1), rgba(0, 0,0, 0));
+}
+.cover-gradient {
+  height: 100vh;
+	width: 100vw;
+	opacity: 0;
+  animation: fadeMe 0.3s linear;
+	animation-delay: 2s;
+	animation-fill-mode: forwards;
+	background-image: linear-gradient(to right, rgba(179, 49, 95, 0.5), rgba(58, 0, 117, 0.5));
+}
+
+@keyframes fadeMe {
+  0% {
+		opacity: 0;
+  }
+  100% {
+		opacity: 1;
+	}
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-float infinite 3s ease-in-out;

@@ -30,7 +30,7 @@ class CardsFlights extends Component  {
 
   return (
       this.props.filteredFlights.map((key,index) => (
-    <div className="container border mb-2" key={index}>
+    <div className="container border mb-2 cover-tickets pt-3"  key={index}>
        <ul className="event-list">
          <li>
          <img alt="Independence Day" src="/assets/img/logoryanair.png" />
@@ -67,7 +67,7 @@ class CardsFlights extends Component  {
            </div>
            <div className="social">
                <time>
-                 <h3 className="mt-4">{key.price}</h3>
+                   {key.route.length==1 ?  <h3 className="mt-4">{key.price}€</h3>  : null}
                </time>
            </div>
          </li>
@@ -104,11 +104,11 @@ class CardsFlights extends Component  {
            </div>
            <div className="social">
                  <time>
-                   <h3 className="mt-4">{key.price}</h3>
+                   <h3 className="mt-4">{key.price}€</h3>
                  </time>
                  <Row className="offset-3">
                    <Button className=""variant="contained" color="primary" onClick={() => this.handleClose(key.deep_link)}>
-                     Close
+                     Book
                    </Button>
                  </Row>
            </div>

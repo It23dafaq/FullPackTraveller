@@ -92,9 +92,9 @@ export default function ScrollableTabsButtonPrevent() {
         </Tabs>
       </AppBar>
       <TabPanel  value={value} index={0} className="backGroundAirplane">
-        <TabSearch handler={handleClickChildComponent}/>
+        <TabSearch  handler={handleClickChildComponent}/>
       </TabPanel>
-      <TabPanel value={value} index={1}>
+      <TabPanel value={value} index={1} className="backGroundTickets">
       <ListTickets/>
       </TabPanel>
       <TabPanel value={value} index={2}>
