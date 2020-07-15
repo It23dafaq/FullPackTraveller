@@ -96,30 +96,10 @@ render(){
            </Typography>
          </CardContent>
          <CardActions disableSpacing>
-           <IconButton onClick={() => this.handleMoreDetails(key)} aria-label="More Details">
+           <IconButton onClick={() => this.handleMoreDetails(key)} aria-label="More Details" style={{fontSize: 'large'}}>Show More Details
              <InfoIcon />
            </IconButton>
-           <IconButton
-             className={clsx(classes.expand, {
-               [classes.expandOpen]: this.state.expanded,
-             })}
-             onClick={(event,index) => this.handleExpandClick(event,index)}
-             aria-expanded={this.state.expanded}
-             aria-label="show more"
-           >
-
-             <ExpandMoreIcon />
-           </IconButton>
          </CardActions>
-         <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
-           <CardContent>
-             <Typography paragraph>Country:</Typography>
-             <Typography paragraph >
-               Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10
-               minutes.
-             </Typography>
-           </CardContent>
-         </Collapse>
        </Card>
      </Col>
 

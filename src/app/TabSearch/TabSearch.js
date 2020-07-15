@@ -58,7 +58,7 @@ class TabSearch extends Component  {
       </div>
 
     </Row>
-    <Row >
+    <Row className="justify-content-center">
      {flights}
     </Row>
     </>
