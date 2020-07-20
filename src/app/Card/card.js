@@ -8,6 +8,7 @@ import { connect } from 'react-redux'
 //import Dropdown from 'react-bootstrap/Dropdown'
 import './card.css';
 import {selectedTicket} from '../../store/actions/mainPageActions'
+import Moment from 'react-moment';
 
 class CardsFlights extends Component  {
   constructor(props) {
@@ -68,20 +69,20 @@ console.log(this.state);
          <li>
          <img alt="Independence Day" src="/assets/img/logoryanair.png" />
            <time >
-             <p className="mt-4">27</p>
-             <p >{key.route[0].utc_departure}</p>
+             <p className="mt-4 text-strokeDesign"><Moment format="D">{key.route[0].utc_departure}</Moment></p>
+             <p className="text-strokeDesign"><Moment format="MMMM">{key.route[0].utc_departure}</Moment></p> 
            </time>
            <div className="info">
              <Row  className="mt-3 ml-1">
               <Col>
-                <p className="text-strokeDesign">7:55 am</p>
+                <p className="text-strokeDesign"><Moment format="hh:mm:ss a">{key.route[0].utc_departure}</Moment></p>
              </Col>
 
              <Col>
                <p className="text-strokeDesign">6h 55m </p>
             </Col>
             <Col>
-              <p className="text-strokeDesign">7:55 pm</p>
+              <p className="text-strokeDesign"><Moment format="hh:mm:ss a">{key.route[0].utc_arrival}</Moment></p>
            </Col>
            </Row>
             <Row className="ml-1 ">
@@ -116,19 +117,19 @@ console.log(this.state);
          <li>
          <img alt="Independence Day" src="/assets/img/logoryanair.png" />
            <time >
-             <p className="mt-4">4</p>
-             <p className="text-strokeDesign">{key.route[1].utc_departure}</p>
+             <p className="mt-4 text-strokeDesign"><Moment format="D">{key.route[1].utc_departure}</Moment></p>
+             <p className="text-strokeDesign"><Moment format="MMMM">{key.route[1].utc_departure}</Moment></p>
            </time>
            <div className="info ">
              <Row className="mt-3 ml-2">
               <Col>
-                <p className="text-strokeDesign">7:55 am</p>
+                <p className="text-strokeDesign"><Moment format="hh:mm:ss a">{key.route[1].utc_departure}</Moment></p>
              </Col>
              <Col>
-               <p className="text-strokeDesign">6h 55m </p>
+               <p className="text-strokeDesign border-bottom">6h 55m </p>
             </Col>
             <Col>
-              <p className="text-strokeDesign">7:55 pm</p>
+              <p className="text-strokeDesign"><Moment format="hh:mm:ss a">{key.route[1].utc_arrival}</Moment></p>
            </Col>
            </Row>
             <Row className="ml-2">
