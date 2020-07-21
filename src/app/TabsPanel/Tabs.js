@@ -95,7 +95,7 @@ export default function ScrollableTabsButtonPrevent() {
         <TabSearch  handler={handleClickChildComponent}/>
       </TabPanel>
       <TabPanel value={value} index={1} className="backGroundTickets">
-      <ListTickets/>
+      <ListTickets  />
       </TabPanel>
       <TabPanel value={value} index={2}>
         Item Three

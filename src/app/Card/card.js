@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux'
 //import Dropdown from 'react-bootstrap/Dropdown'
 import './card.css';
+import '../animations.css'
 import {selectedTicket} from '../../store/actions/mainPageActions'
 import Moment from 'react-moment';
 
@@ -63,14 +64,14 @@ console.log(this.state);
 
   return (
       this.props.filteredFlights.map((key,index) => (
-    <div className={"container border  cover-tickets pt-3 marginBottomCards "+(this.state.key[index] ? 'selected_ticket' : '')}  onClick={ () => this.handleSelected(index) }
+    <div  className={"container border  bounceInLeft  pt-3 marginBottomCards "+(this.state.key[index] ? 'selected_ticket' : '')}  onClick={ () => this.handleSelected(index) }
       key={index}>
        <ul className="event-list">
          <li>
          <img alt="Independence Day" src="/assets/img/logoryanair.png" />
            <time >
              <p className="mt-4 text-strokeDesign"><Moment format="D">{key.route[0].utc_departure}</Moment></p>
-             <p className="text-strokeDesign"><Moment format="MMMM">{key.route[0].utc_departure}</Moment></p> 
+             <p className="text-strokeDesign"><Moment format="MMMM">{key.route[0].utc_departure}</Moment></p>
            </time>
            <div className="info">
              <Row  className="mt-3 ml-1">

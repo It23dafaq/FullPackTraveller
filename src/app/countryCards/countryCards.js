@@ -80,7 +80,7 @@ render(){
  const { classes } = this.props;
  return (
    Array.from(this.props.flightsGB.keys()).map((key,index) => (
-      <Col key={key} className="col-auto">
+      <Col key={key} className="col-auto bounceInDown">
        <Card className={classes.root}>
          <CardHeader
 
