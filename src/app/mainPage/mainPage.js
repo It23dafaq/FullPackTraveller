@@ -104,7 +104,7 @@ class MainPage extends Component  {
     isCheckedRound:!this.state.isCheckedRound});
  }
  onFocusSearch(){
-   console.log("mpika");
+
     //$('#portfolio').css('background-image','url(assets/img/airplane.jpg)');
    document.getElementById('portfolio').style.backgroundImage="url(assets/img/airplane.jpg)";
    document.getElementById('portfolio').style.animation="fadeMe 1.5s";
@@ -114,7 +114,7 @@ class MainPage extends Component  {
 
  }
  onFocusHeader(){
-   console.log("mpika header");
+
     //$('#portfolio').css('background-image','url(assets/img/airplane.jpg)');
     document.getElementById('portfolio').style.backgroundImage='none';
     document.getElementById('portfolio').style.animation='none';
@@ -162,7 +162,7 @@ class MainPage extends Component  {
                   </div>
               </div>
           </header>
-          <section className="page-section portfolio mt-5 " id="portfolio"  onMouseOver={this.onFocusSearch}>
+          <section className="page-section portfolio mt-5 p-5" id="portfolio"  onMouseOver={this.onFocusSearch}>
               <div className="container ">
                   <h2 className="page-section-heading text-center text-uppercase text-secondary mb-0">Search</h2>
                   <div className="divider-custom">

@@ -8,6 +8,7 @@ import ScrollableTabsButtonPrevent from '../TabsPanel/Tabs.js'
 import Slider from '@material-ui/core/Slider';
 import { connect } from 'react-redux'
 import LocalAirportIcon from '@material-ui/icons/LocalAirport';
+import TrendingHolder from '../trendingDestinations/trendingDestinations'
 
 class TabSearch extends Component  {
   constructor(props) {
@@ -47,7 +48,7 @@ class TabSearch extends Component  {
   return (
     <>
 
-    <Row>
+    <Row className="">
       <div className="divider-custom ">
       <h1 >Search Results</h1>
       </div>
@@ -58,9 +59,19 @@ class TabSearch extends Component  {
       </div>
 
     </Row>
-    <Row className="justify-content-center">
+    <Row className="justify-content-center mb-12">
      {flights}
     </Row>
+      <div>
+      <Row className="justify-content-center selected_ticket ">
+       <h4  className=" p-3">Trending trips</h4>
+      </Row>
+       <Row  className=" p-5 justify-content-center backgroundColorAbout">
+          <TrendingHolder/>
+          <TrendingHolder/>
+          <TrendingHolder/>
+      </Row>
+      </div>
     </>
 
 

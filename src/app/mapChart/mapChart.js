@@ -11,7 +11,7 @@ const geoUrl =
 
 const MapChart = () => {
   return (
-    <ComposableMap projectionConfig={{ scale: 160 }}>
+    <ComposableMap projectionConfig={{ scale: 160 }} className="worldStyle">
       <Sphere stroke="#FF5533" strokeWidth={0} />
       <Geographies geography={geoUrl}>
         {({ geographies }) =>
