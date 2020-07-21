@@ -38,11 +38,11 @@ class TabSearch extends Component  {
  render(){
   let flights;
   if(this.props.itookData==true){
-    const grouped = this.groupBy(this.props.flights,type=>type.cityTo);
+    //const grouped = this.groupBy(this.props.flights,type=>type.cityTo);
 
-    console.log("mpika sto flights dada",grouped);
+  
     flights = (
-          <RecipeReviewCard handler={this.props.handler} flightsGB={grouped}/>
+          <RecipeReviewCard handler={this.props.handler} flightsGB={this.props.flights}/>
     )
   }
   return (

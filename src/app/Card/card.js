@@ -63,38 +63,38 @@ console.log(this.state);
   console.log(this.state.key[0]);
 
   return (
-      this.props.filteredFlights.map((key,index) => (
+      this.props.journeys.map((key,index) => (
     <div  className={"container border  bounceInLeft  pt-3 marginBottomCards "+(this.state.key[index] ? 'selected_ticket' : '')}  onClick={ () => this.handleSelected(index) }
       key={index}>
        <ul className="event-list">
          <li>
-         <img alt="Independence Day" src="/assets/img/logoryanair.png" />
+         <img className="p-3" alt="Independence Day" src={key.origin.flight.airline.logoHref} />
            <time >
-             <p className="mt-4 text-strokeDesign"><Moment format="D">{key.route[0].utc_departure}</Moment></p>
-             <p className="text-strokeDesign"><Moment format="MMMM">{key.route[0].utc_departure}</Moment></p>
+             <p className="mt-4 text-strokeDesign"><Moment format="D">{key.origin.departure}</Moment></p>
+             <p className="text-strokeDesign"><Moment format="MMMM">{key.origin.departure}</Moment></p>
            </time>
            <div className="info">
              <Row  className="mt-3 ml-1">
               <Col>
-                <p className="text-strokeDesign"><Moment format="hh:mm:ss a">{key.route[0].utc_departure}</Moment></p>
+                <p className="text-strokeDesign"><Moment format="hh:mm:ss a">{key.origin.departure}</Moment></p>
              </Col>
 
              <Col>
                <p className="text-strokeDesign">6h 55m </p>
             </Col>
             <Col>
-              <p className="text-strokeDesign"><Moment format="hh:mm:ss a">{key.route[0].utc_arrival}</Moment></p>
+              <p className="text-strokeDesign"><Moment format="hh:mm:ss a">{key.destination.arrival}</Moment></p>
            </Col>
            </Row>
             <Row className="ml-1 ">
               <Col>
-                <p className="text-strokeDesign">{key.cityCodeFrom}</p>
+                <p className="text-strokeDesign">{key.origin.airport}</p>
               </Col>
               <Col>
                 <p className="text-strokeDesign"> Direct</p>
               </Col>
               <Col>
-                <p className="text-strokeDesign"> {key.cityCodeTo}</p>
+                <p className="text-strokeDesign"> {key.destination.airport}</p>
               </Col>
             </Row>
            </div>
@@ -102,8 +102,8 @@ console.log(this.state);
            </div>
            <div className="social">
                <time>
-                   {key.route.length==1 ? <>
-                    <h3 className="mt-4">{key.price}€</h3>
+                   {key.type==='Oneway' ? <>
+                    <h3 className="mt-4">{key.price.EUR}€</h3>
                    <Row className="offset-3">
                      <Button className=""variant="contained" color="primary" onClick={() => this.handleClose(key.deep_link)}>
                        Book
@@ -114,40 +114,40 @@ console.log(this.state);
                </time>
            </div>
          </li>
-         {key.route.length>1 ? (
+         {key.type==='Round' ? (
          <li>
-         <img alt="Independence Day" src="/assets/img/logoryanair.png" />
+         <img className="p-3" alt="Independence Day" src={key.destination.flight.airline.logoHref} />
            <time >
-             <p className="mt-4 text-strokeDesign"><Moment format="D">{key.route[1].utc_departure}</Moment></p>
-             <p className="text-strokeDesign"><Moment format="MMMM">{key.route[1].utc_departure}</Moment></p>
+             <p className="mt-4 text-strokeDesign"><Moment format="D">{key.destination.departure}</Moment></p>
+             <p className="text-strokeDesign"><Moment format="MMMM">{key.destination.departure}</Moment></p>
            </time>
            <div className="info ">
              <Row className="mt-3 ml-2">
               <Col>
-                <p className="text-strokeDesign"><Moment format="hh:mm:ss a">{key.route[1].utc_departure}</Moment></p>
+                <p className="text-strokeDesign"><Moment format="hh:mm:ss a">{key.destination.departure}</Moment></p>
              </Col>
              <Col>
                <p className="text-strokeDesign border-bottom">6h 55m </p>
             </Col>
             <Col>
-              <p className="text-strokeDesign"><Moment format="hh:mm:ss a">{key.route[1].utc_arrival}</Moment></p>
+              <p className="text-strokeDesign"><Moment format="hh:mm:ss a">{key.origin.arrival}</Moment></p>
            </Col>
            </Row>
             <Row className="ml-2">
               <Col>
-                <p className="text-strokeDesign">{key.route[1].cityCodeFrom}</p>
+                <p className="text-strokeDesign">{key.destination.airport}</p>
               </Col>
               <Col>
                 <p className="text-strokeDesign"> Direct</p>
               </Col>
               <Col>
-                <p className="text-strokeDesign"> {key.route[1].flyTo}</p>
+                <p className="text-strokeDesign"> {key.origin.airport}</p>
               </Col>
             </Row>
            </div>
            <div className="social">
                  <time>
-                   <h3 className="mt-4">{key.price}€</h3>
+                   <h3 className="mt-4">{key.price.EUR}€</h3>
                  </time>
                  <Row className="offset-3">
                    <Button className=""variant="contained" color="primary" onClick={() => this.handleClose(key.deep_link)}>
@@ -169,7 +169,7 @@ const mapStateToProps = (state, props) => {
     loading: state.main.loading,
     error: state.main.error,
     itookData: state.main.itookData,
-    filteredFlights:state.main.filteredFlights,
+    journeys:state.main.journeys,
     ...props
   };
 };

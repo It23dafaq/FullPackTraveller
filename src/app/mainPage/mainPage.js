@@ -107,7 +107,7 @@ class MainPage extends Component  {
 
     //$('#portfolio').css('background-image','url(assets/img/airplane.jpg)');
    document.getElementById('portfolio').style.backgroundImage="url(assets/img/airplane.jpg)";
-   document.getElementById('portfolio').style.animation="fadeMe 1.5s";
+   document.getElementById('portfolio').style.animation="bounceIn 1.0s";
    document.getElementById('portfolio').style.backgroundRepeat="no-repeat";
    document.getElementById('portfolio').style.backgroundSize="cover";
 

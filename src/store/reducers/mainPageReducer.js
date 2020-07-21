@@ -7,6 +7,7 @@ const initialState = {
     itookData:false,
     filteredFlights:null,
     selectedTicket:null,
+    journeys:null,
 };
 
 const callStart = ( state, action ) => {
@@ -30,20 +31,17 @@ const getFlights = (state, action) => {
     });
 
 };
-const filterFlights = (state, countryName) => {
-    console.log(countryName);
-    if(state.flights!==null){
-    let filteredResults=state.flights.filter(flight => flight.cityTo === countryName );
+const filterFlights = (state, journeys) => {
+
       return updateObject(state, {
-        filteredFlights: filteredResults
+        journeys: journeys
       });
-     }
 };
 
 const selectedTicket = (state, index) => {
     console.log(index);
-    if(state.filteredFlights!==null){
-    let selectedticket=state.filteredFlights[index];
+    if(state.journeys!==null){
+    let selectedticket=state.journeys[index];
       return updateObject(state, {
         selectedTicket: selectedticket
       });

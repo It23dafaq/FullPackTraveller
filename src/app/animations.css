@@ -504,8 +504,10 @@
 }
 
 .bounceIn {
-  -webkit-animation-name: bounceIn;
-  animation-name: bounceIn;
+  /* -webkit-animation-name: bounceIn;
+  animation-name: bounceIn; */
+  animation: bounceIn 0.8s linear;
+  animation-delay: 0.0s;
 }
 
 @-webkit-keyframes bounceInDown {

@@ -79,24 +79,24 @@ class RecipeReviewCard extends Component  {
 render(){
  const { classes } = this.props;
  return (
-   Array.from(this.props.flightsGB.keys()).map((key,index) => (
-      <Col key={key} className="col-auto bounceInDown">
+   this.props.flightsGB.map((key,index) => (
+      <Col key={index} className="col-auto bounceInDown">
        <Card className={classes.root}>
          <CardHeader
 
          />
          <CardMedia
            className={classes.media}
-           image="assets/img/test2.jpg"
+           image={key.cityLogoHref}
            title="Paella dish"
          />
          <CardContent>
            <Typography variant="body2" color="textSecondary" component="p">
-           Flights for {key} start at 30$
+           Flights for {key.city} start at {key.lowestPrice}$
            </Typography>
          </CardContent>
          <CardActions disableSpacing>
-           <IconButton onClick={() => this.handleMoreDetails(key)} aria-label="More Details" style={{fontSize: 'large'}}>Show More Details
+           <IconButton onClick={() => this.handleMoreDetails(key.journeys)} aria-label="More Details" style={{fontSize: 'large'}}>Show More Details
              <InfoIcon />
            </IconButton>
          </CardActions>
