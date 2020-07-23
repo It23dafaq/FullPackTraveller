@@ -11,7 +11,18 @@
 .media .stats span i{margin-right:7px; color:#4765AB;}
 .media .address{float:left; width:100%;font-size:14px; margin-top:5px; color:#888;}
 .media .fav-box{position:absolute; right:10px; font-size:20px; top:4px; color:#E74C3C;}
-
+.drawerButton{
+  position: absolute;
+    top: 90px;
+    left: 20px;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.displayFilter{
+display: none;
+}
+.displayfullFilter{
+  display: block;
+}
 .map-box{background-color:#A3CCFF;}
 @media (max-width: 576px) {
   .media {
@@ -22,8 +33,28 @@
   .media-body{border:1px solid #bcbcbc; border-left:0; height:240px;}
   .media img{width: -webkit-fill-available;margin:0; height:240px;}
   .media .address{float:left; width:50%;font-size:12px; margin-top:5px; color:#888;}
+  .card {display: -webkit-inline-box;
+     min-width: fit-content;}
 }
 @media (min-width: 576px) and (max-width: 1000px) {
   .media img{width:200px;margin:0; height:220px;}
   .media-body{border:1px solid #bcbcbc; border-left:0; height:220px;}
+  .card {display: -webkit-inline-box;
+     min-width: fit-content;}
+    .displayFilter{
+    display: block;
+    }
+    .displayfullFilter{
+      display: none;
+    }
+
+}
+@media (min-width: 1000px) and (max-width: 1240px) {
+    .displayFilter{
+    display: block;
+    }
+    .displayfullFilter{
+      display: none;
+    }
+
 }
