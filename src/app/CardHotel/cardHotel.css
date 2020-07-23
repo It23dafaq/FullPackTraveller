@@ -11,3 +11,13 @@
 .media .fav-box{position:absolute; right:10px; font-size:20px; top:4px; color:#E74C3C;}
 
 .map-box{background-color:#A3CCFF;}
+@media (max-width: 576px) {
+  .media {
+    display: block;
+    position: relative;
+
+  }
+  .media-body{border:1px solid #bcbcbc; border-left:0; height:180px;}
+  .media img{width: -webkit-fill-available;margin:0; height:136px;}
+  .media .address{float:left; width:50%;font-size:12px; margin-top:5px; color:#888;}
+}

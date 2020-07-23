@@ -27,7 +27,7 @@ class CardHotel extends Component  {
 
   return (
     <div className="ml-3 row">
-<div className="col-md-6 listing-block">
+<div className="col-auto listing-block">
     <div className="media">
         <div className="fav-box"><i className="fa fa-heart-o" aria-hidden="true"></i>
            </div>
