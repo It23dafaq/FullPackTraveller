@@ -5,6 +5,7 @@
 .media .stars{position:relative;; left:10px; font-size:20px; top:4px; color:#E74C3C;}
 .media .price{float:left; width:100%; font-size:30px;font-weight:600; color:#4765AB;}
 .media .price small{display:block; font-size:17px; color:#232323;}
+  big{font-size:14px; color:#232323;float: left;}
 .media .stats{float:left; width:100%; margin-top:10px;}
 .media .stats span{float:left; margin-right:10px; font-size:15px;}
 .media .stats span i{margin-right:7px; color:#4765AB;}
@@ -18,7 +19,11 @@
     position: relative;
 
   }
-  .media-body{border:1px solid #bcbcbc; border-left:0; height:180px;}
-  .media img{width: -webkit-fill-available;margin:0; height:136px;}
+  .media-body{border:1px solid #bcbcbc; border-left:0; height:240px;}
+  .media img{width: -webkit-fill-available;margin:0; height:240px;}
   .media .address{float:left; width:50%;font-size:12px; margin-top:5px; color:#888;}
+}
+@media (min-width: 576px) and (max-width: 1000px) {
+  .media img{width:200px;margin:0; height:220px;}
+  .media-body{border:1px solid #bcbcbc; border-left:0; height:220px;}
 }
