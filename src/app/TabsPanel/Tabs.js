@@ -19,6 +19,7 @@ import LocalHotelIcon from '@material-ui/icons/LocalHotel';
 import RoomIcon from '@material-ui/icons/Room';
 import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import ListTickets from '../TabTickets/TabTickets';
+import TabHotel from '../TabHotel/tabHotel'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -98,7 +99,7 @@ export default function ScrollableTabsButtonPrevent() {
       <ListTickets  />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <TabHotel/>
       </TabPanel>
       <TabPanel value={value} index={3}>
         Item four

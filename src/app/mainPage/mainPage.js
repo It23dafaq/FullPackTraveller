@@ -106,7 +106,7 @@ class MainPage extends Component  {
  onFocusSearch(){
 
     //$('#portfolio').css('background-image','url(assets/img/airplane.jpg)');
-   document.getElementById('portfolio').style.backgroundImage="url(assets/img/airplane.jpg)";
+  // document.getElementById('portfolio').style.backgroundImage="url(assets/img/airplane.jpg)";
    document.getElementById('portfolio').style.animation="bounceIn 1.0s";
    document.getElementById('portfolio').style.backgroundRepeat="no-repeat";
    document.getElementById('portfolio').style.backgroundSize="cover";
@@ -262,6 +262,8 @@ class MainPage extends Component  {
           <script src="assets/mail/jqBootstrapValidation.js"></script>
           <script src="assets/mail/contact_me.js"></script>
           <script src="js/scripts.js"></script>
+
+
      </div>
 
 
