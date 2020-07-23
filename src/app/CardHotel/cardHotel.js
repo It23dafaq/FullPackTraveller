@@ -54,7 +54,7 @@ class CardHotel extends Component  {
                </div>
               <img className="d-flex align-self-start" src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?h=350&auto=compress&cs=tinysrgb" alt="Generic placeholder image"/>
               <div className="media-body pl-3">
-                  <div className="stars"><span className="float-left"><i className="text-warning fa fa-star"></i><i className="text-warning fa fa-star"></i><i className="text-warning fa fa-star"></i><i className="text-warning fa fa-star"></i></span></div>
+                  <div className="stars"><span className="float-left"><i className="text-warning fa fa-star"></i><i className="text-warning fa fa-star"></i></span></div>
                 <div className="price">$799,000<small className="mr-1">New York </small></div>
                 <div><big>Excellent city hotel. Good for sightseeing with nearby parking areas. Great rooms and fantastic service. Awesome vibe.</big></div>
                 <div className="stats">
