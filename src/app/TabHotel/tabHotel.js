@@ -5,7 +5,7 @@ import RecipeReviewCard from '../countryCards/countryCards'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import './tabHotel.css';
-import LocalAirportIcon from '@material-ui/icons/LocalAirport';
+import HotelIcon from '@material-ui/icons/Hotel';
 import CardHotel from '../CardHotel/cardHotel'
 
 
@@ -34,7 +34,7 @@ class TabHotel extends Component  {
    </div>
  <div className="divider-custom ">
        <div className="divider-custom-line"></div>
-       <div className="divider-custom-icon"><i> <LocalAirportIcon/></i></div>
+       <div className="divider-custom-icon"><i> <HotelIcon/></i></div>
        <div className="divider-custom-line"></div>
    </div>
    </div>

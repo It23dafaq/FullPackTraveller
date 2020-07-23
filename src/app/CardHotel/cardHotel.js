@@ -5,7 +5,7 @@ import RecipeReviewCard from '../countryCards/countryCards'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import './cardHotel.css';
-import LocalAirportIcon from '@material-ui/icons/LocalAirport';
+
 
 
 
@@ -26,13 +26,14 @@ class CardHotel extends Component  {
  render(){
 
   return (
-    <div className="ml-3 row">
+    <div className="row justify-content-center">
 <div className="col-auto listing-block">
     <div className="media">
         <div className="fav-box"><i className="fa fa-heart-o" aria-hidden="true"></i>
            </div>
           <img className="d-flex align-self-start" src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?h=350&auto=compress&cs=tinysrgb" alt="Generic placeholder image"/>
           <div className="media-body pl-3">
+              <div className="stars"><span className="float-left"><i className="text-warning fa fa-star"></i></span></div>
             <div className="price">$799,000<small>New York</small></div>
             <div className="stats">
                 <span><i className="fa fa-arrows-alt"></i>1678 Sq ft</span>
