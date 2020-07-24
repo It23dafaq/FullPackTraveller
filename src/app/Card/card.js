@@ -68,11 +68,15 @@ console.log(this.state);
       key={index}>
        <ul className="event-list">
          <li>
+
          <img className="p-3" alt="Independence Day" src={key.origin.flight.airline.logoHref} />
            <time >
              <p className="mt-4 text-strokeDesign"><Moment format="D">{key.origin.departure}</Moment></p>
              <p className="text-strokeDesign"><Moment format="MMMM">{key.origin.departure}</Moment></p>
-           </time>
+              {this.state.key[index] ?
+              <img className="selected_ticketIMG" src="https://img.icons8.com/clouds/100/000000/checked-checkbox.png"/>
+                : null}
+         </time>
            <div className="info">
              <Row  className="mt-3 ml-1">
               <Col>
