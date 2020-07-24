@@ -18,7 +18,7 @@ class FilterHotel extends Component  {
     <div className="card">
     	<article className="card-group-item">
     		<header className="card-header">
-    			<h6 className="title">Brands </h6>
+    			<h6 className="title">Property Type </h6>
     		</header>
     		<div className="filter-content">
     			<div className="card-body">
@@ -26,21 +26,39 @@ class FilterHotel extends Component  {
     				<label className="form-check">
     				  <input className="form-check-input" type="checkbox" value=""/>
     				  <span className="form-check-label">
-    				    Mersedes Benz
+    				   Hotels
     				  </span>
     				</label>
     				<label className="form-check">
     				  <input className="form-check-input" type="checkbox" value=""/>
     				  <span className="form-check-label">
-    				    Nissan Altima
+    				   Appartments
     				  </span>
     				</label>
     				<label className="form-check">
     				  <input className="form-check-input" type="checkbox" value=""/>
     				  <span className="form-check-label">
-    				    Another Brand
+    				   Hostels
     				  </span>
     				</label>
+            <label className="form-check">
+              <input className="form-check-input" type="checkbox" value=""/>
+              <span className="form-check-label">
+               villas
+              </span>
+            </label>
+            <label className="form-check">
+              <input className="form-check-input" type="checkbox" value=""/>
+              <span className="form-check-label">
+               Guest houses
+              </span>
+            </label>
+            <label className="form-check">
+              <input className="form-check-input" type="checkbox" value=""/>
+              <span className="form-check-label">
+               Motels
+              </span>
+            </label>
     			</form>
 
     			</div>
@@ -49,28 +67,46 @@ class FilterHotel extends Component  {
 
     	<article className="card-group-item">
     		<header className="card-header">
-    			<h6 className="title">Choose type </h6>
+    			<h6 className="title">Star Rating </h6>
     		</header>
     		<div className="filter-content">
     			<div className="card-body">
     			<label className="form-check">
     			  <input className="form-check-input" type="radio" name="exampleRadio" value=""/>
     			  <span className="form-check-label">
-    			    First hand items
+    			    1 star
     			  </span>
     			</label>
     			<label className="form-check">
     			  <input className="form-check-input" type="radio" name="exampleRadio" value=""/>
     			  <span className="form-check-label">
-    			    Brand new items
+    	      2 stars
     			  </span>
     			</label>
     			<label className="form-check">
     			  <input className="form-check-input" type="radio" name="exampleRadio" value=""/>
     			  <span className="form-check-label">
-    			    Some other option
+    			   3 stars
     			  </span>
     			</label>
+          <label className="form-check">
+    			  <input className="form-check-input" type="radio" name="exampleRadio" value=""/>
+    			  <span className="form-check-label">
+    			   4 stars
+    			  </span>
+    			</label>
+          <label className="form-check">
+    			  <input className="form-check-input" type="radio" name="exampleRadio" value=""/>
+    			  <span className="form-check-label">
+    			   5 stars
+    			  </span>
+    			</label>
+          <label className="form-check">
+            <input className="form-check-input" type="radio" name="exampleRadio" value=""/>
+            <span className="form-check-label">
+             Unrated
+            </span>
+          </label>
     			</div>
     		</div>
     	</article>

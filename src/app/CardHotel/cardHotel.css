@@ -33,8 +33,12 @@ display: none;
   .media-body{border:1px solid #bcbcbc; border-left:0; height:240px;}
   .media img{width: -webkit-fill-available;margin:0; height:240px;}
   .media .address{float:left; width:50%;font-size:12px; margin-top:5px; color:#888;}
-  .card {display: -webkit-inline-box;
-     min-width: fit-content;}
+  .displayFilter{
+  display: block;
+  }
+  .displayfullFilter{
+    display: none;
+  }
 }
 @media (min-width: 576px) and (max-width: 1000px) {
   .media img{width:200px;margin:0; height:220px;}
