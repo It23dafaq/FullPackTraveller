@@ -16,6 +16,8 @@ import Slider from '@material-ui/core/Slider';
 import LinearIndeterminate from '../Spinner/ProgressBar'
 import SearchIcon from '@material-ui/icons/Search';
 import ReactTooltip from "react-tooltip";
+import Countrys from "../../store/countrys"
+
 
 class MainPage extends Component  {
   constructor(props) {
@@ -33,6 +35,7 @@ class MainPage extends Component  {
      isCheckedRound:true,
      daysIndest:0,
      content:'',
+     countrys:[],
 
  };
   //this lines passing this to all methods
@@ -44,6 +47,7 @@ class MainPage extends Component  {
     this.radioButtonchangedOneway = this.radioButtonchangedOneway.bind(this);
     this.handleChangeDaysInDest = this.handleChangeDaysInDest.bind(this);
     this.setContent = this.setContent.bind(this);
+    this.setCountrys = this.setCountrys.bind(this);
  }
 
 //this method handles range cahnges
@@ -58,9 +62,25 @@ class MainPage extends Component  {
   handleChange(event) {
     this.setState({value: event.target.value});
   }
+  //this method is handling toolip
   setContent(e){
-    console.log(e);
-    this.setState({content: e})
+      this.setState({content: e})
+  }
+  //this method fill array with sellected countrys
+  setCountrys(e){
+    if(this.state.countrys.some(elem => elem.name === e)){
+      this.setState({countrys: this.state.countrys.filter(function(country) {
+       console.log(country);
+       return country.name !== e
+        })});
+    }else{
+      let newArray = Countrys.filter(function (name){
+         return name.name === e
+      })
+      console.log(newArray);
+    this.setState({countrys:[...this.state.countrys,newArray[0]]})
+      }
+      console.log(this.state.countrys);
   }
   componentDidUpdate(){
 
@@ -83,8 +103,6 @@ class MainPage extends Component  {
      flag:true,
    })
     let parameters = {}
-    console.log(this.state.isCheckedRound);
-    console.log(this.state.isCheckedRound);
     parameters.fly_from = this.state.value;
     if(this.state.isCheckedRound){
         parameters.flight_type = 'round';
@@ -132,12 +150,22 @@ class MainPage extends Component  {
 
  render(){
    let spinner;
+   let selectedCountrys;
      if(this.props.loading){
        spinner=(
            <LinearIndeterminate />
        )
      }
+  if(this.state.countrys.length !== 0){
+     selectedCountrys=(
 
+
+             <>
+
+           </>
+
+     )
+  }
 
   return (
     <div className="backGroundMainPage"  >
@@ -159,8 +187,9 @@ class MainPage extends Component  {
           <header onMouseOver={this.onFocusHeader} className="masthead  text-white text-center">
               <div className="container d-flex align-items-center flex-column">
                  <h1>Simply The Best</h1>
-                   <MapChart setTooltipContent={(e) => this.setContent(e)} />
+                   <MapChart setTooltipContent={(e) => this.setContent(e)} setCountrys={(e)=> this.setCountrys(e)} data={this.state.countrys} />
                    <ReactTooltip>{this.state.content}</ReactTooltip>
+                    {selectedCountrys}
                    <h3 className="text-dark">Reasons for Choosing US</h3>
                    <p  className="text-dark">Best travel offers</p>
                   <div className="divider-custom ">

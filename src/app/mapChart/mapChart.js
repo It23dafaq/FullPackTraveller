@@ -1,9 +1,11 @@
 import React, { memo } from "react";
+import Countrys from "../../store/countrys"
 import {
   ZoomableGroup,
   ComposableMap,
   Geographies,
-  Geography
+  Geography,
+  Marker
 } from "react-simple-maps";
 
 const geoUrl =
@@ -19,7 +21,7 @@ const rounded = num => {
   }
 };
 
-const MapChart = ({ setTooltipContent }) => {
+const MapChart = ({ setTooltipContent,setCountrys,data }) => {
   return (
     <>
       <ComposableMap data-tip="" projectionConfig={{ scale: 200 }}>
@@ -34,27 +36,48 @@ const MapChart = ({ setTooltipContent }) => {
                     const { NAME, POP_EST } = geo.properties;
                     setTooltipContent(`${NAME} — ${rounded(POP_EST)}`);
                   }}
+                  onClick={()=>{
+                    const { NAME, POP_EST } = geo.properties;
+                      setCountrys(`${NAME}`);
+                  }}
                   onMouseLeave={() => {
                     setTooltipContent("");
                   }}
                   style={{
                     default: {
                       fill: "#D6D6DA",
-                      outline: "none"
+                      opacity:"1"
+
                     },
                     hover: {
                       fill: "#F53",
                       outline: "none"
                     },
                     pressed: {
-                      fill: "#E42",
-                      outline: "none"
-                    }
+                      outline: "0",
+                      opacity:"0"
+                    },
+                    focus: {
+                    outline: "0"
+                     }
                   }}
                 />
               ))
             }
           </Geographies>
+          (data.length > 0 &&
+          {data.map(({ name, coordinates,index }) => (
+      <Marker key={name} coordinates={coordinates}>
+        <circle r={1} fill="#F00" stroke="#fff" strokeWidth={1} />
+        <text
+          textAnchor="middle"
+
+          style={{ fontFamily: "system-ui", fill: "#5D5A6D" }}
+        >
+
+        </text>
+      </Marker>
+    ))})
         </ZoomableGroup>
       </ComposableMap>
     </>
