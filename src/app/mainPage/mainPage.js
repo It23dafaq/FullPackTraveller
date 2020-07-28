@@ -120,14 +120,17 @@ class MainPage extends Component  {
   valuetext(value) {
    return `${value}°C`;
  }
+ //this method handle radio button Round
  radioButtonchangedRound(){
    this.setState({isCheckedRound:!this.state.isCheckedRound,
     isCheckedOneWay:!this.state.isCheckedOneWay});
  }
+ //this method handle radio button oneway
  radioButtonchangedOneway(){
     this.setState({isCheckedOneWay:!this.state.isCheckedOneWay,
     isCheckedRound:!this.state.isCheckedRound});
  }
+ //onFocus changing style dynamicaly on Search
  onFocusSearch(){
 
     //$('#portfolio').css('background-image','url(assets/img/airplane.jpg)');
@@ -138,6 +141,7 @@ class MainPage extends Component  {
 
 
  }
+ //onFocus changing style dynamicaly on Header
  onFocusHeader(){
 
     //$('#portfolio').css('background-image','url(assets/img/airplane.jpg)');
@@ -151,15 +155,17 @@ class MainPage extends Component  {
  render(){
    let spinner;
    let selectedCountrys;
+   //if props ->redux is loading ->comming data
+   //Show loader
      if(this.props.loading){
        spinner=(
            <LinearIndeterminate />
        )
      }
+     //if props ->redux Countrys not null ->
+     //TODO IF user has login will be implle,emt hi mark here
   if(this.state.countrys.length !== 0){
      selectedCountrys=(
-
-
              <>
 
            </>
@@ -311,6 +317,7 @@ class MainPage extends Component  {
   );
  }
 }
+//this method let us having acces to variables we need or information via redux
 const mapStateToProps = (state, props) => {
   return {
     flights: state.main.flights,
@@ -320,6 +327,7 @@ const mapStateToProps = (state, props) => {
     ...props
   };
 };
+//this method let us acces function for async or simple tasks
 const mapDispatchToProps = dispatch => {
   return {
     getFlights: formdata => dispatch(getFlights(formdata))
