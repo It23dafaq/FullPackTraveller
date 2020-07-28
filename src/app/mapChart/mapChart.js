@@ -46,19 +46,18 @@ const MapChart = ({ setTooltipContent,setCountrys,data }) => {
                   style={{
                     default: {
                       fill: "#D6D6DA",
-                      opacity:"1"
-
+                      opacity:"1",
+                      outline: "none"
                     },
                     hover: {
                       fill: "#F53",
                       outline: "none"
                     },
                     pressed: {
-                      outline: "0",
-                      opacity:"0"
+                      outline: "none",
                     },
                     focus: {
-                    outline: "0"
+                      outline: "none"
                      }
                   }}
                 />
