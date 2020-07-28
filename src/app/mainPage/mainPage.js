@@ -15,6 +15,7 @@ import {getFlights} from '../../store/actions/mainPageActions'
 import Slider from '@material-ui/core/Slider';
 import LinearIndeterminate from '../Spinner/ProgressBar'
 import SearchIcon from '@material-ui/icons/Search';
+import ReactTooltip from "react-tooltip";
 
 class MainPage extends Component  {
   constructor(props) {
@@ -31,6 +32,7 @@ class MainPage extends Component  {
      isCheckedOneWay:false,
      isCheckedRound:true,
      daysIndest:0,
+     content:'',
 
  };
   //this lines passing this to all methods
@@ -41,6 +43,7 @@ class MainPage extends Component  {
     this.radioButtonchangedRound = this.radioButtonchangedRound.bind(this);
     this.radioButtonchangedOneway = this.radioButtonchangedOneway.bind(this);
     this.handleChangeDaysInDest = this.handleChangeDaysInDest.bind(this);
+    this.setContent = this.setContent.bind(this);
  }
 
 //this method handles range cahnges
@@ -54,6 +57,10 @@ class MainPage extends Component  {
  //this method handles selector
   handleChange(event) {
     this.setState({value: event.target.value});
+  }
+  setContent(e){
+    console.log(e);
+    this.setState({content: e})
   }
   componentDidUpdate(){
 
@@ -152,7 +159,8 @@ class MainPage extends Component  {
           <header onMouseOver={this.onFocusHeader} className="masthead  text-white text-center">
               <div className="container d-flex align-items-center flex-column">
                  <h1>Simply The Best</h1>
-                   <MapChart />
+                   <MapChart setTooltipContent={(e) => this.setContent(e)} />
+                   <ReactTooltip>{this.state.content}</ReactTooltip>
                    <h3 className="text-dark">Reasons for Choosing US</h3>
                    <p  className="text-dark">Best travel offers</p>
                   <div className="divider-custom ">
