@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
-import FlightLandIcon from '@material-ui/icons/FlightLand';
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux'
 //import Dropdown from 'react-bootstrap/Dropdown'
 import './card.css';
 import '../animations.css'
 import {selectedTicket} from '../../store/actions/mainPageActions'
-import {getHotels} from '../../store/actions/hotelActions'
 import Moment from 'react-moment';
 
 class CardsFlights extends Component  {

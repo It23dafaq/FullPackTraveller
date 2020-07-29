@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 //import Dropdown from 'react-bootstrap/Dropdown'
-import DropDownSelect from '../DropdownSelect/dropDownSelect'
 import Select from 'react-select';
 import Form from 'react-bootstrap/Form'
 import './mainPage.css';
 import AirPorts from '../../store/airPorts'
-import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
@@ -84,7 +82,7 @@ class MainPage extends Component  {
   }
   componentDidUpdate(){
 
-    if(this.props.itookData==true){
+    if(this.props.itookData===true){
       this.props.history.push({
        pathname: "/SearchResults"
      });
@@ -94,7 +92,7 @@ class MainPage extends Component  {
   handleSubmit(event) {
 
    event.preventDefault();
-   if(this.state.value==''&& this.state.daysIndest==0){
+   if(this.state.value===''&& this.state.daysIndest===0){
      window.alert("fill all fields")
    }else{
    let data = this.state.value;

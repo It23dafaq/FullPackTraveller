@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import CardsFlights from '../Card/card'
 import RecipeReviewCard from '../countryCards/countryCards'
 //import Dropdown from 'react-bootstrap/Dropdown'
 import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import ScrollableTabsButtonPrevent from '../TabsPanel/Tabs.js'
-import Slider from '@material-ui/core/Slider';
 import { connect } from 'react-redux'
 import LocalAirportIcon from '@material-ui/icons/LocalAirport';
 import TrendingHolder from '../trendingDestinations/trendingDestinations'
@@ -37,10 +33,10 @@ class TabSearch extends Component  {
 
  render(){
   let flights;
-  if(this.props.itookData==true){
+  if(this.props.itookData===true){
     //const grouped = this.groupBy(this.props.flights,type=>type.cityTo);
 
-  
+
     flights = (
           <RecipeReviewCard handler={this.props.handler} flightsGB={this.props.flights}/>
     )

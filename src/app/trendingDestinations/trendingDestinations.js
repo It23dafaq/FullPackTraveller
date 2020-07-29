@@ -18,7 +18,7 @@ class TrendingHolder extends Component  {
 
     <Row>
      <Col className="text-center mr-5">
-      <img className="rounded-circle trendingImageHolder" src="/assets/img/logoryanair.png" />
+      <img className="rounded-circle trendingImageHolder" src="/assets/img/logoryanair.png" alt="something" />
       <h2>Japan</h2>
       <p>some small example why people want to go there</p>
       <p><a className="btn btn-secondary" href="#" role="button">View details »</a></p>

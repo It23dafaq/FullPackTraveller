@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import CardsFlights from '../Card/card'
-import RecipeReviewCard from '../countryCards/countryCards'
 //import Dropdown from 'react-bootstrap/Dropdown'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 import '../CardHotel/cardHotel.css';
 import HotelIcon from '@material-ui/icons/Hotel';
 import CardHotel from '../CardHotel/cardHotel';

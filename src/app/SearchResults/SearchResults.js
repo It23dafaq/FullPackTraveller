@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import CardsFlights from '../Card/card'
-import RecipeReviewCard from '../countryCards/countryCards'
 //import Dropdown from 'react-bootstrap/Dropdown'
 import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 import ScrollableTabsButtonPrevent from '../TabsPanel/Tabs.js'
-import Slider from '@material-ui/core/Slider';
 
 class SearchResults extends Component  {
   constructor(props) {
@@ -28,7 +24,7 @@ class SearchResults extends Component  {
         <ScrollableTabsButtonPrevent/>
       </Row>
 
-   
+
 
 
   );

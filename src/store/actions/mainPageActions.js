@@ -1,8 +1,8 @@
 import axios from "axios";
 import * as actionTypes from "../actionTypes";
 
-const baseUrl='https://api.skypicker.com/flights?';
-const baseUrlTquila='https://tequila-api.kiwi.com/v2/search?';
+//const baseUrl='https://api.skypicker.com/flights?';
+//const baseUrlTquila='https://tequila-api.kiwi.com/v2/search?';
 //  url='http://localhost:2020/api/Flights/search?airport='+formdata.fly_from+'&'+'daysInDestination='+formdata.nights_in_dst_to+'&flight_type='+formdata.flight_type+'&priceTo='+formdata.range[1]
 //http://localhost:2020/api/Flights/search
 //https://api.skypicker.com/flights?flyFrom=PRG&to=LGW&dateFrom=18/11/2020&dateTo=12/12/2020&partner=picky&v=3

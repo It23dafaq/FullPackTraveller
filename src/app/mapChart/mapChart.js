@@ -1,5 +1,4 @@
 import React, { memo } from "react";
-import Countrys from "../../store/countrys"
 import {
   ZoomableGroup,
   ComposableMap,

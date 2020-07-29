@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
-import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import InfoIcon from '@material-ui/icons/Info';
 import Col from 'react-bootstrap/Col'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { connect } from 'react-redux'
 import './countryCards.css';
 import {filterFlightsByName} from '../../store/actions/mainPageActions'
