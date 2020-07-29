@@ -8,6 +8,7 @@ const initialState = {
     filteredFlights:null,
     selectedTicket:null,
     journeys:null,
+    budget:null,
 };
 
 const callStart = ( state, action ) => {
@@ -28,6 +29,7 @@ const getFlights = (state, action) => {
       error: null,
       loading: false,
       itookData:true,
+      budget:action.budget,
     });
 
 };

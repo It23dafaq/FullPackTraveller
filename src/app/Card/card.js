@@ -9,6 +9,7 @@ import { connect } from 'react-redux'
 import './card.css';
 import '../animations.css'
 import {selectedTicket} from '../../store/actions/mainPageActions'
+import {getHotels} from '../../store/actions/hotelActions'
 import Moment from 'react-moment';
 
 class CardsFlights extends Component  {
@@ -60,7 +61,7 @@ console.log(this.state);
  //     classSelected="";
  //   }
  // }
-  console.log(this.state.key[0]);
+
 
   return (
       this.props.journeys.map((key,index) => (
@@ -174,6 +175,8 @@ const mapStateToProps = (state, props) => {
     error: state.main.error,
     itookData: state.main.itookData,
     journeys:state.main.journeys,
+    selected:state.main.selectedTicket,
+    Budget:state.main.budget,
     ...props
   };
 };

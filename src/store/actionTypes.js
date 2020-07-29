@@ -14,3 +14,7 @@ export const CALL_FAIL   = 'CALL_FAIL';
 export const FILTER_FLIGHTS   = 'FILTER_FLIGHTS';
 //selected ticket
 export const SELECTED_TICKET   = 'SELECTED_TICKET';
+
+//Search getHotelSuccess
+export const SEARCH_HOTELS = 'SEARCH_HOTELS';
+export const GET_HOTELS = 'GET_HOTELS';

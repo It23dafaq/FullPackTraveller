@@ -19,25 +19,25 @@ export const callStart = () => {
     type: actionTypes.CALL_START
   };
 };
-export const getFlightsSuccess = (flights,budget) => {
-  console.log("get flights success", flights);
+export const getHotelSuccess = hotels => {
 
   return {
-    type: actionTypes.GET_FLIGHTS,
-    flights: flights,
-    budget:budget,
+    type: actionTypes.GET_HOTELS,
+    hotels: hotels
   };
 
 };
-export const getFlights = formdata => {
-  console.log("here flights", formdata);
+export const getHotels = (formdata,budget) => {
+  console.log("here Hotels", formdata);
+  console.log("here Hotels", budget);
   let url;
+  var budget= budget-formdata.price.EUR
   return dispatch => {
 
     dispatch(callStart());
   //  if(formdata.flight_type=='round'){
       //url='https://tequila-api.kiwi.com/v2/search?fly_from='+formdata.fly_from+'&'+'nights_in_dst_from='+formdata.nights_in_dst_from+'&nights_in_dst_to='+formdata.nights_in_dst_to+'&flight_type='+formdata.flight_type+'&'+'partner_market= alpha-2'+'&dateFrom=7/11/2020&dateTo=12/12/2020'+'&max_stopovers=0&type_flights=lcc&ret_from_diff_airport=0'
-       url='http://localhost:2020/api/Flights/search?airport='+formdata.fly_from+'&daysInDestination='+formdata.nights_in_dst_to+'&flightType='+formdata.flight_type+'&priceTo='+formdata.range[1]
+       url='http://localhost:2020/api/Hotels/search?cityName='+formdata.destination.city+'&checkIn='+formdata.destination.arrival+'&checkOut='+formdata.destination.departure+'&budget='+budget+'&adults=1'
     //}else{
   //    url='https://tequila-api.kiwi.com/v2/search?fly_from='+formdata.fly_from+'&'+'flight_type='+formdata.flight_type+'&'+'partner_market= alpha-2'+'&dateFrom=7/11/2020&dateTo=12/12/2020'+'&max_stopovers=0&type_flights=lcc&ret_from_diff_airport=0'
   //  }
@@ -56,7 +56,7 @@ export const getFlights = formdata => {
         if (res.data.error) {
           dispatch(callFail(res.data.error));
         } else {
-          dispatch(getFlightsSuccess(res.data,formdata.range[1]));
+          dispatch(getHotelSuccess(res.data));
         }
       })
       .catch(err => {
@@ -64,17 +64,3 @@ export const getFlights = formdata => {
       });
   };
 };
-export const filterFlightsByName=(name)=>{
-   return {
-    type:actionTypes.FILTER_FLIGHTS,
-     country:name
-
-   }
-}
-export const selectedTicket=(index)=>{
-   return {
-    type:actionTypes.SELECTED_TICKET,
-     index:index
-
-   }
-}
