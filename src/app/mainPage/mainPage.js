@@ -81,8 +81,8 @@ class MainPage extends Component  {
       console.log(this.state.countrys);
   }
   componentDidUpdate(){
-
-    if(this.props.itookData===true){
+     console.log(this.props);
+    if(this.props.jump===true){
       this.props.history.push({
        pathname: "/SearchResults"
      });
@@ -203,8 +203,8 @@ class MainPage extends Component  {
                   </div>
               </div>
           </header>
-          <section className="page-section portfolio mt-5 p-5" id="portfolio"  onMouseOver={this.onFocusSearch}>
-              <div className="container ">
+          <section className="portfolio mt-5 paddingSearch" id="portfolio"  onMouseOver={this.onFocusSearch}>
+              <div className="container">
                   <h2 className="page-section-heading text-center text-uppercase text-secondary mb-0">Search</h2>
                   <div className="divider-custom">
                       <div className="divider-custom-line"></div>
@@ -322,6 +322,7 @@ const mapStateToProps = (state, props) => {
     loading: state.main.loading,
     error: state.main.error,
     itookData: state.main.itookData,
+    jump:state.main.jump,
     ...props
   };
 };

@@ -9,6 +9,7 @@ const initialState = {
     selectedTicket:null,
     journeys:null,
     budget:null,
+    jump:false,
 };
 
 const callStart = ( state, action ) => {
@@ -30,6 +31,7 @@ const getFlights = (state, action) => {
       loading: false,
       itookData:true,
       budget:action.budget,
+      jump:true,
     });
 
 };
@@ -39,7 +41,13 @@ const filterFlights = (state, journeys) => {
         journeys: journeys
       });
 };
+const jump = (state, journeys) => {
 
+      return updateObject(state, {
+        jump: false,
+        itookData:true
+      });
+};
 const selectedTicket = (state, index) => {
     console.log(index);
     if(state.journeys!==null){
@@ -59,6 +67,7 @@ const selectedTicket = (state, index) => {
       case actionTypes.GET_FLIGHTS: return getFlights(state, action);
       case actionTypes.FILTER_FLIGHTS: return filterFlights(state, action.country);
       case actionTypes.SELECTED_TICKET: return selectedTicket(state, action.index);
+        case actionTypes.JUMP: return jump(state, action);
        default:
            return state;
      }

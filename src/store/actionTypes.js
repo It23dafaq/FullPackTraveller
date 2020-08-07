@@ -18,3 +18,6 @@ export const SELECTED_TICKET   = 'SELECTED_TICKET';
 //Search getHotelSuccess
 export const SEARCH_HOTELS = 'SEARCH_HOTELS';
 export const GET_HOTELS = 'GET_HOTELS';
+
+//flag for change main to tabSearch
+export const JUMP ='JUMP'

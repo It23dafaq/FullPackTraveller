@@ -64,6 +64,12 @@ export const getFlights = formdata => {
       });
   };
 };
+export const jumpFalse=()=>{
+   return {
+    type:actionTypes.JUMP,
+
+   }
+}
 export const filterFlightsByName=(name)=>{
    return {
     type:actionTypes.FILTER_FLIGHTS,

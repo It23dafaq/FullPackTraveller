@@ -15,7 +15,7 @@ class FilterHotel extends Component  {
  render(){
 
   return (
-    <div className="card">
+    <div className="">
     	<article className="card-group-item">
     		<header className="card-header">
     			<h6 className="title">Property Type </h6>

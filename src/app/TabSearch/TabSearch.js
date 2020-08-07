@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row'
 import { connect } from 'react-redux'
 import LocalAirportIcon from '@material-ui/icons/LocalAirport';
 import TrendingHolder from '../trendingDestinations/trendingDestinations'
+import {jumpFalse} from '../../store/actions/mainPageActions'
 
 class TabSearch extends Component  {
   constructor(props) {
@@ -16,6 +17,10 @@ class TabSearch extends Component  {
   //this lines passing this to all methods
 //   this.handleChange = this.handleChange.bind(this);
 
+ }
+ componentDidMount(){
+    console.log(this.props);
+    this.props.jumpFalse();
  }
   groupBy(list, keyGetter) {
      const map = new Map();
@@ -82,5 +87,12 @@ const mapStateToProps = (state, props) => {
     ...props
   };
 };
+//this method let us acces function for async or simple tasks
+const mapDispatchToProps = dispatch => {
+  return {
+    jumpFalse: ()  => dispatch(jumpFalse())
+  };
+};
 
-export default connect(mapStateToProps, null)(TabSearch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(TabSearch);

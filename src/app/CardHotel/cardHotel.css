@@ -51,6 +51,9 @@ display: none;
     .displayfullFilter{
       display: none;
     }
+    big{
+      font-size:10px;
+    }
 
 }
 @media (min-width: 1000px) and (max-width: 1240px) {

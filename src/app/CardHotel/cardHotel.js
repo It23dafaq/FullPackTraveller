@@ -5,7 +5,7 @@ import {getHotels} from '../../store/actions/hotelActions'
 import { connect } from 'react-redux'
 import * as moment from 'moment'
 import CircularIndeterminate from '../Spinner/circle'
-
+import Button from '@material-ui/core/Button';
 
 
 
@@ -62,6 +62,11 @@ componentDidMount(){
                  <div><big>{key.summary}</big></div>
                  <div className="stats">
                      <span><i className="fa fa-bath"></i>{key.propertyType}</span>
+                 </div>
+                 <div className="float-left">
+                   <Button className=""variant="contained" color="primary" onClick={() => this.handleClose(key.deep_link)}>
+                     Book
+                   </Button>
                  </div>
                </div>
              </div>

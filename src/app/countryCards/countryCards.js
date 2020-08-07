@@ -74,6 +74,7 @@ class RecipeReviewCard extends Component  {
    this.props.filterFlightsByName(key);
 };
 render(){
+  console.log(this.props);
  const { classes } = this.props;
  return (
    this.props.flightsGB.map((key,index) => (
