@@ -30,7 +30,7 @@ componentDidMount(){
 }
 
  render(){
-
+  //<div>{this.props.selected.destination.arrival} {this.props.selected.destination.departure}</div> line 64
      let spinner;
      let hotels;
       //Show loader
@@ -58,14 +58,14 @@ componentDidMount(){
                          )})}
                       </span>
                   </div>
-                 <div className="price">{key.estimatedPrice}€<small className="mr-1">{key.name} </small></div>
+                 <div className="price">{key.estimatedPrice}€<small className="mr-1">{key.name}</small></div>
                  <div><big>{key.summary}</big></div>
                  <div className="stats">
                      <span><i className="fa fa-bath"></i>{key.propertyType}</span>
                  </div>
                  <div className="float-left">
                    <Button className=""variant="contained" color="primary" onClick={() => this.handleClose(key.deep_link)}>
-                     Book
+                     View more Details
                    </Button>
                  </div>
                </div>
