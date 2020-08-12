@@ -77,7 +77,7 @@ render(){
   console.log(this.props);
  const { classes } = this.props;
  return (
-   this.props.flightsGB.map((key,index) => (
+   this.props.flightsGB ? this.props.flightsGB.map((key,index) => (
       <Col key={index} className="col-auto bounceInDown">
        <Card className={classes.root}>
          <CardHeader
@@ -101,7 +101,7 @@ render(){
        </Card>
      </Col>
 
-))
+)):null
 )
 }
 }

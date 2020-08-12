@@ -61,7 +61,7 @@ console.log(this.state);
 
 
   return (
-      this.props.journeys.map((key,index) => (
+    this.props.journeys && this.props.journeys.map((key,index) => (
     <div  className={"container border  bounceInLeft  pt-3 marginBottomCards "+(this.state.key[index] ? 'selected_ticket' : '')}  onClick={ () => this.handleSelected(index) }
       key={index}>
        <ul className="event-list">
