@@ -203,7 +203,7 @@ class MainPage extends Component  {
                   </div>
               </div>
           </header>
-          <section className="portfolio mt-5 paddingSearch" id="portfolio"  onMouseOver={this.onFocusSearch}>
+          <section className="page-section portfolio mt-5 paddingSearch" id="portfolio"  onMouseOver={this.onFocusSearch}>
               <div className="container">
                   <h2 className="page-section-heading text-center text-uppercase text-secondary mb-0">Search</h2>
                   <div className="divider-custom">
