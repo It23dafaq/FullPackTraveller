@@ -172,9 +172,9 @@ class MainPage extends Component  {
   }
 
   return (
-    <div className="backGroundMainPage"  >
+    <div className=""  >
           <nav className="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-              <div className="container">
+              <div className="container ">
                   <a className="navbar-brand js-scroll-trigger" href="#page-top">{this.props.name}</a>
                   <button className="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                       Menu
@@ -189,8 +189,9 @@ class MainPage extends Component  {
               </div>
           </nav>
           <header onMouseOver={this.onFocusHeader} className="masthead  text-white text-center">
-              <div className="container d-flex align-items-center flex-column">
+              <div className="container d-flex align-items-center flex-column ">
                  <h1>Simply The Best</h1>
+
                    <MapChart setTooltipContent={(e) => this.setContent(e)} setCountrys={(e)=> this.setCountrys(e)} data={this.state.countrys} />
                    <ReactTooltip>{this.state.content}</ReactTooltip>
                     {selectedCountrys}

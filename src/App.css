@@ -21,17 +21,14 @@ background-color: rgb(220, 220, 220);
     border-radius: 142%;
 }
 #root{
-  position: absolute;
-  
-    background-image: url('/assets/img/sky.jpg');
-     background-repeat: no-repeat;
-
+  position: relative;
+  justify-content: center;
 }
 .backGroundMainPage{
-  background-image: url('/assets/img/clouds.jpg');
+  /* background-image: url('/assets/img/clouds.jpg');
    background-repeat: no-repeat;
    width: 100%;
-   background-size: cover;
+   background-size: cover; */
 }
 .backGroundAirplane{
   background-image: url('/assets/img/airplane.jpg');
