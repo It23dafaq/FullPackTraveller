@@ -3,8 +3,8 @@
 }
 .main-app,
 .main-view {
-  width: 100% !important;
-  height: 100% !important;
+  /* width: 100% !important;
+  height: 100% !important; */
 
 
 }
@@ -21,8 +21,8 @@ background-color: rgb(220, 220, 220);
     border-radius: 142%;
 }
 #root{
-  position: relative;
-  justify-content: center;
+  display: flex;
+      justify-content: center;
 }
 .backGroundMainPage{
   /* background-image: url('/assets/img/clouds.jpg');
