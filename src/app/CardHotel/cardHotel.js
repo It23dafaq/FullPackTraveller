@@ -46,7 +46,7 @@ componentDidMount(){
          <div key={index} className="row justify-content-center">
        <div className="col-8">
          <div className="media">
-             <div className="fav-box"><i className="fa fa-heart-o" aria-hidden="true"></i>
+             <div className="fav-box border "><p>{key.rating/10}</p>
                 </div>
                <img className="d-flex align-self-start" src={key.photoHref} alt="Generic placeholder image"/>
                <div className="media-body pl-3">
@@ -61,9 +61,11 @@ componentDidMount(){
                  <div className="price">{key.estimatedPrice}€<small className="mr-1">{key.name}</small></div>
                  <div><big>{key.summary}</big></div>
                  <div className="float-left">
+                   <div className="col">
                    <Button className=""variant="contained" color="primary" onClick={() => this.handleClose(key.deep_link)}>
                      View more Details
                    </Button>
+                   </div>
                  </div>
                </div>
              </div>
