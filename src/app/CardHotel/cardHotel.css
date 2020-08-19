@@ -5,7 +5,7 @@
 .media .stars{position:relative;; left:10px; font-size:20px; top:4px; color:#E74C3C;}
 .media .price{float:left; width:100%; font-size:30px;font-weight:600; color:#4765AB;}
 .media .price small{display:block; font-size:17px; color:#232323;}
-  big{font-size:14px; color:#232323;float: left;}
+  big{font-size:12px; color:#232323;float: left;}
 .media .stats{float:left; width:100%; margin-top:10px;}
 .media .stats span{float:left; margin-right:10px; font-size:15px;}
 .media .stats span i{margin-right:7px; color:#4765AB;}
@@ -52,7 +52,7 @@ display: none;
       display: none;
     }
     big{
-      font-size:10px;
+      font-size:9px;
     }
 
 }

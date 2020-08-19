@@ -60,9 +60,6 @@ componentDidMount(){
                   </div>
                  <div className="price">{key.estimatedPrice}€<small className="mr-1">{key.name}</small></div>
                  <div><big>{key.summary}</big></div>
-                 <div className="stats">
-                     <span><i className="fa fa-bath"></i>{key.propertyType}</span>
-                 </div>
                  <div className="float-left">
                    <Button className=""variant="contained" color="primary" onClick={() => this.handleClose(key.deep_link)}>
                      View more Details

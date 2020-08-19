@@ -7,7 +7,7 @@ import ListTickets from './app/TabTickets/TabTickets';
 
 function App() {
   return (
-      <div className="main-view">
+
         <Router>
            <Switch>
             <Route exact path="/" component={MainPage} />
@@ -15,7 +15,7 @@ function App() {
             <Route exact path="/TicketsResults" component={ListTickets} />
         </Switch>
         </Router>
-      </div>
+    
   );
 }
 
