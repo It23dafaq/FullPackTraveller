@@ -40,6 +40,7 @@ const useStyles = ((theme) => ({
   avatar: {
     backgroundColor: red[500],
   },
+
 }));
 class RecipeReviewCard extends Component  {
   constructor(props) {
@@ -79,7 +80,7 @@ render(){
  return (
    this.props.flightsGB ? this.props.flightsGB.map((key,index) => (
       <Col key={index} className="col-auto bounceInDown">
-       <Card className={classes.root}>
+       <Card className={`card-1 ${classes.root}`} >
          <CardHeader
 
          />

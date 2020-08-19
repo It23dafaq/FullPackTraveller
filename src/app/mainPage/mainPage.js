@@ -174,7 +174,7 @@ class MainPage extends Component  {
 
   return (
     <div className="ml-5"  >
-          <nav className="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+          <nav className="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top boxShadowNavbar" id="mainNav">
               <div className="container ">
                   <a className="navbar-brand js-scroll-trigger" href="#page-top">{this.props.name}</a>
                   <button className="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive1" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
